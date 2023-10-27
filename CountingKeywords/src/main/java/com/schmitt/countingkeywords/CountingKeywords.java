@@ -33,12 +33,13 @@ public class CountingKeywords {
             System.out.println("File " + filename + " does not exist in the current working directory (CWD)");
             System.out.println("CWD: " + Paths.get("").toAbsolutePath().toString());
         }
-
+        
         // Create a linked list and test its performance
         Collection<Integer> list2 = new LinkedList<>();
         System.out.println("Member test time for linked list is " + getTestTime(list2) + " milliseconds");
         System.out.println("Remove element time for linked list is " + getRemoveTime(list2) + " milliseconds");
     }
+    
 
     /**
      * Calculate the time taken to test if a number is in the collection.
