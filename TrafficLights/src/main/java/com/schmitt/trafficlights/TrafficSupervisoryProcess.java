@@ -8,10 +8,12 @@ package com.schmitt.trafficlights;
  * Represents the supervisory process that checks synchronization conditions.
  */
 public class TrafficSupervisoryProcess implements Runnable {
+
     private final TrafficLightsController[] controllers;
 
     /**
-     * Initializes a SupervisoryProcess with an array of traffic light controllers.
+     * Initializes a SupervisoryProcess with an array of traffic light
+     * controllers.
      *
      * @param controllers The array of traffic light controllers.
      */
@@ -35,6 +37,8 @@ public class TrafficSupervisoryProcess implements Runnable {
                 if (allRed) {
                     System.out.println("Supervisory Controller: Synchronize");
                     // Perform synchronization actions if needed
+
+                    
                 }
 
                 Thread.sleep(1000);
