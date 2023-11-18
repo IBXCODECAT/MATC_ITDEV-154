@@ -13,6 +13,9 @@ import java.util.NoSuchElementException;
 
 import java.util.Scanner;
 
+/**
+ * A simple phonebook application that allows users to add, search, edit, print, and save contacts.
+ */
 public class Phonebook {
 
     public static void main(String[] args) {
@@ -27,6 +30,9 @@ public class Phonebook {
     private static StringBuilder mainMenu = new StringBuilder();
     private static Hashtable<String, String> phonebook = new Hashtable<>();
 
+    /**
+     * Builds the main menu for the phonebook application.
+     */
     private static void BuildUI() {
         mainMenu.append("Phonebook Menu:\n");
         mainMenu.append("1. Add a contact\n");
@@ -38,7 +44,9 @@ public class Phonebook {
         mainMenu.append('\n');
     }
 
-    // Function to load the phonebook from the "phonebook.dat" file
+    /**
+     * Loads the phonebook from the "phonebook.dat" file.
+     */
     private static void LoadPhonebook() {
         var loadedPhonebook = new Hashtable<String, String>();
 
@@ -53,9 +61,11 @@ public class Phonebook {
         }
 
         phonebook = loadedPhonebook;
-
     }
 
+    /**
+     * Runs the phonebook application, allowing users to interact with the phonebook.
+     */
     private static void Run() {
         String strMenu = mainMenu.toString();
 
@@ -85,7 +95,7 @@ public class Phonebook {
             }
 
             switch (choice) {
-                //Add a contact
+                // Add a contact
                 case 1 -> {
                     System.out.println("Enter phone number");
                     String phoneNumber = scanner.nextLine();
@@ -94,7 +104,7 @@ public class Phonebook {
                     phonebook.put(phoneNumber, contactInfo);
                 }
 
-                //Search for a contact
+                // Search for a contact
                 case 2 -> {
                     System.out.println("Enter a phone number or contact information");
                     String searchKey = scanner.nextLine();
@@ -107,7 +117,7 @@ public class Phonebook {
                     }
                 }
 
-                //Edit the contact
+                // Edit the contact
                 case 3 -> {
                     System.out.print("Enter a phone number to edit the contact: ");
                     String editNumber = scanner.nextLine();
@@ -124,14 +134,14 @@ public class Phonebook {
                     }
                 }
 
-                //Print the phonebook
+                // Print the phonebook
                 case 4 -> {
                     for (String key : phonebook.keySet()) {
                         System.out.println(key + ": " + phonebook.get(key));
                     }
                 }
 
-                //Save the phonebook
+                // Save the phonebook
                 case 5 -> {
                     try {
                         FileOutputStream fileOut = new FileOutputStream("phonebook.dat");
@@ -145,7 +155,7 @@ public class Phonebook {
                     }
                 }
 
-                //Exit the program
+                // Exit the program
                 case 6 -> {
                     System.out.println("Exiting...");
                     selectionScanner.close();
@@ -156,7 +166,6 @@ public class Phonebook {
                 default -> {
                     System.out.println("Invalid option selected");
                 }
-
             }
         }
     }
